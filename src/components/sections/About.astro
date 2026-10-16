@@ -1,0 +1,50 @@
+---
+import profile from '../../data/profile.json';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="sobre-mi" class="relative border-t border-white/5 bg-bg-base py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div class="grid items-start gap-12 md:grid-cols-2">
+      <!-- Left: copy -->
+      <div class="reveal">
+        <Eyebrow label={profile.about.eyebrow} />
+        <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+          {profile.about.heading}
+        </h2>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-text-muted">
+          {profile.about.body}
+        </p>
+        <div class="mt-6">
+          <Button
+            label={profile.about.cta.label}
+            href={profile.about.cta.href}
+            variant="outline"
+            arrow={profile.about.cta.arrow}
+          />
+        </div>
+      </div>
+
+      <!-- Right: stats grid -->
+      <div class="reveal grid grid-cols-2 gap-4">
+        {profile.stats.map((stat) => (
+          <div
+            class="group rounded-xl border border-white/5 bg-bg-elevated p-5 transition hover:-translate-y-0.5 hover:border-brand-500/30"
+          >
+            <div class="grid size-10 place-items-center rounded-lg bg-brand-500/10 text-brand-300 ring-1 ring-brand-500/20">
+              <Icon name={stat.icon as any} size={20} />
+            </div>
+            <p class="mt-4 text-3xl font-bold tracking-tight text-text">
+              {stat.value}
+            </p>
+            <p class="mt-1 text-xs text-text-muted">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

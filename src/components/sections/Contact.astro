@@ -1,0 +1,78 @@
+---
+import profile from '../../data/profile.json';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+import site from '../../data/site.json';
+---
+
+<section id="contacto" class="relative border-t border-white/5 py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-5xl px-5 sm:px-8">
+    <div class="reveal overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-bg-elevated via-bg-soft to-bg-elevated p-8 sm:p-12">
+      <div class="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <Eyebrow label={profile.contact.eyebrow} />
+          <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+            {profile.contact.heading}
+          </h2>
+          <p class="mt-3 max-w-lg text-base leading-relaxed text-text-muted">
+            {profile.contact.body}
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <Button
+              label={profile.contact.cta.label}
+              href={profile.contact.cta.href}
+              variant="primary"
+              arrow={profile.contact.cta.arrow}
+            />
+            <Button
+              label="Descargar CV"
+              href="/cv-ofilio-herdocia.pdf"
+              variant="outline"
+              arrow="↓"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-3 rounded-xl border border-white/5 bg-bg-base/60 p-5">
+          <a
+            href={`mailto:${site.contact.email}`}
+            class="group flex items-center gap-3 rounded-lg border border-white/5 bg-bg-elevated/60 p-3 transition hover:border-brand-500/30"
+          >
+            <span class="grid size-10 place-items-center rounded-lg bg-brand-500/10 text-brand-300">
+              <Icon name="mail" size={18} />
+            </span>
+            <div class="min-w-0">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-faint">Email</p>
+              <p class="truncate text-sm text-text group-hover:text-brand-200 transition">{site.contact.email}</p>
+            </div>
+          </a>
+          <a
+            href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
+            class="group flex items-center gap-3 rounded-lg border border-white/5 bg-bg-elevated/60 p-3 transition hover:border-brand-500/30"
+          >
+            <span class="grid size-10 place-items-center rounded-lg bg-brand-500/10 text-brand-300">
+              <Icon name="phone" size={18} />
+            </span>
+            <div class="min-w-0">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-faint">Teléfono</p>
+              <p class="truncate text-sm text-text group-hover:text-brand-200 transition">{site.contact.phone}</p>
+            </div>
+          </a>
+          <div class="flex items-center gap-3 rounded-lg border border-white/5 bg-bg-elevated/60 p-3">
+            <span class="grid size-10 place-items-center rounded-lg bg-brand-500/10 text-brand-300">
+              <Icon name="pin" size={18} />
+            </span>
+            <div class="min-w-0">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-faint">Ubicación</p>
+              <p class="truncate text-sm text-text">{site.contact.location}</p>
+            </div>
+          </div>
+          <p class="pt-2 text-xs text-text-faint">
+            {site.contact.availability}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

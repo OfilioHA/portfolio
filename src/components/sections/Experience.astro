@@ -1,0 +1,91 @@
+---
+import profile from '../../data/profile.json';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Icon from '../ui/Icon.astro';
+---
+
+<section id="experiencia" class="relative border-t border-white/5 bg-bg-base py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div class="text-center reveal">
+      <Eyebrow label={profile.experience.eyebrow} />
+      <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+        {profile.experience.heading}
+      </h2>
+    </div>
+
+    <ol class="relative mt-12 space-y-5">
+      <!-- vertical timeline line -->
+      <div
+        aria-hidden="true"
+        class="absolute left-4 top-2 bottom-2 hidden w-px bg-gradient-to-b from-brand-500/40 via-white/10 to-transparent sm:left-6 sm:block"
+      ></div>
+
+      {profile.experience.items.map((item, i) => (
+        <li
+          class="reveal relative grid grid-cols-[auto_1fr] items-start gap-4 rounded-xl border border-white/5 bg-bg-elevated/50 p-5 transition hover:border-brand-500/25 sm:grid-cols-[auto_1fr] sm:gap-5 sm:p-6"
+        >
+          <!-- Icon column -->
+          <div class="relative">
+            <div class="grid size-9 place-items-center rounded-lg bg-brand-500/10 text-brand-300 ring-1 ring-brand-500/25 sm:size-12 sm:rounded-xl">
+              <Icon name="briefcase" size={20} />
+            </div>
+            <span class="absolute -right-1 -top-1 hidden h-3 w-3 rounded-full bg-brand-500 ring-4 ring-bg-base sm:block"></span>
+          </div>
+
+          <!-- Content -->
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-base font-bold tracking-tight text-text sm:text-lg">
+                {item.role}
+                <span class="text-text-faint">·</span>
+                <span class="text-brand-300">{item.company}</span>
+              </h3>
+              <span class="rounded-md border border-white/10 bg-bg-soft px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                {item.period}
+              </span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">
+              {item.summary}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <!-- Education & Languages compact block -->
+    <div class="mt-16 grid gap-6 md:grid-cols-2">
+      <div class="reveal rounded-xl border border-white/5 bg-bg-elevated/50 p-6">
+        <div class="flex items-center gap-2 text-brand-300">
+          <Icon name="graduation" size={18} />
+          <h3 class="text-sm font-bold uppercase tracking-[0.18em]">Educación & Certificaciones</h3>
+        </div>
+        <ul class="mt-4 space-y-3">
+          {profile.education.items.map((ed) => (
+            <li class="flex flex-col gap-0.5 border-l-2 border-brand-500/40 pl-3">
+              <span class="text-sm font-semibold text-text">{ed.title}</span>
+              <span class="text-xs text-text-muted">{ed.org}</span>
+              {ed.period && <span class="font-mono text-[10px] uppercase tracking-wider text-text-faint">{ed.period}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="reveal rounded-xl border border-white/5 bg-bg-elevated/50 p-6">
+        <div class="flex items-center gap-2 text-brand-300">
+          <Icon name="check" size={18} />
+          <h3 class="text-sm font-bold uppercase tracking-[0.18em]">Idiomas</h3>
+        </div>
+        <ul class="mt-4 space-y-3">
+          {profile.languages.map((lang) => (
+            <li class="flex items-center justify-between gap-3">
+              <span class="text-sm font-semibold text-text">{lang.name}</span>
+              <span class="rounded-md border border-white/10 bg-bg-soft px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                {lang.level}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

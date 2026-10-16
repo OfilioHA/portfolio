@@ -1,0 +1,95 @@
+---
+import Icon from '../ui/Icon.astro';
+import profile from '../../data/profile.json';
+import site from '../../data/site.json';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/5 bg-bg-base">
+  <div class="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
+    <div class="grid gap-10 md:grid-cols-3 md:divide-x md:divide-white/5">
+      <!-- Column 1: CTA -->
+      <div class="md:pr-8">
+        <span class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-300">
+          <span class="size-1.5 rounded-full bg-brand-400"></span>
+          {profile.contact.eyebrow}
+        </span>
+        <h3 class="mt-3 text-2xl font-bold tracking-tight text-text">
+          {profile.contact.heading}
+        </h3>
+        <p class="mt-2 max-w-sm text-sm leading-relaxed text-text-muted">
+          {profile.contact.body}
+        </p>
+        <a
+          href={profile.contact.cta.href}
+          class="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_rgba(59,130,246,0.6)] transition hover:bg-brand-600"
+        >
+          {profile.contact.cta.label}
+          <span>↗</span>
+        </a>
+      </div>
+
+      <!-- Column 2: Contact / Quote -->
+      <div class="md:px-8">
+        <div class="rounded-xl border border-white/5 bg-bg-soft p-5">
+          <div class="text-3xl leading-none text-brand-400/70 font-serif">"</div>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            Construir software útil empieza por escuchar al usuario final. Cada proyecto es una oportunidad para crear algo que la gente realmente quiera usar.
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="grid size-10 place-items-center rounded-full bg-gradient-to-br from-brand-400 to-brand-700 text-sm font-semibold text-white">
+              OH
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-text">Ofilio Herdocia</p>
+              <p class="text-xs text-text-faint">Fullstack Developer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: Social -->
+      <div class="md:pl-8">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-300">
+          Encuéntrame en
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {site.social.map((s) => (
+            <a
+              href={s.url}
+              aria-label={s.label}
+              class="grid size-10 place-items-center rounded-lg border border-white/10 bg-bg-elevated text-text-muted transition hover:border-brand-500/40 hover:bg-bg-soft hover:text-brand-300"
+            >
+              <Icon name={s.icon as any} size={18} />
+            </a>
+          ))}
+        </div>
+
+        <ul class="mt-6 space-y-2 text-sm">
+          <li class="flex items-center gap-2 text-text-muted">
+            <Icon name="mail" size={16} class="text-brand-400" />
+            <a href={`mailto:${site.contact.email}`} class="hover:text-text transition">{site.contact.email}</a>
+          </li>
+          <li class="flex items-center gap-2 text-text-muted">
+            <Icon name="phone" size={16} class="text-brand-400" />
+            <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} class="hover:text-text transition">{site.contact.phone}</a>
+          </li>
+          <li class="flex items-center gap-2 text-text-muted">
+            <Icon name="pin" size={16} class="text-brand-400" />
+            <span>{site.contact.location}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/5">
+    <div class="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-text-faint sm:flex-row sm:px-8">
+      <p>© {year} {site.site.name}. Todos los derechos reservados.</p>
+      <p class="flex items-center gap-1.5">
+        Hecho con <span class="text-brand-400">❤</span> por {site.brand.wordmark}
+      </p>
+    </div>
+  </div>
+</footer>

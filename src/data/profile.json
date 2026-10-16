@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "eyebrow": "DESARROLLADOR FULLSTACK",
+    "headline": ["Hola, soy", "Ofilio"],
+    "subline": "Construyo cosas para la web.",
+    "summary": "Desarrollador fullstack con base en Nicaragua y +5 años creando aplicaciones web para negocios locales, universidades y startups. Combino Laravel, Vue, React y Astro con buenas prácticas de Git y un foco obsesivo en la experiencia de usuario.",
+    "ctas": [
+      { "label": "Ver mi trabajo", "href": "#proyectos",  "variant": "primary", "arrow": "↗" },
+      { "label": "Descargar CV",   "href": "/cv-ofilio-herdocia.pdf", "variant": "outline", "arrow": "↓" }
+    ],
+    "techLabel": "TECNOLOGÍAS CON LAS QUE TRABAJO",
+    "tech": ["Laravel", "Vue", "React", "Astro", "Next.js", "Node.js", "PostgreSQL", "Supabase", "Docker", "AWS"]
+  },
+  "about": {
+    "eyebrow": "SOBRE MÍ",
+    "heading": "Me apasiona crear soluciones digitales que la gente realmente usa.",
+    "body": "Fullstack developer con más de cinco años llevando ideas a productos funcionales. He trabajado en proyectos para universidades, startups y negocios locales, usando Laravel, Vue, React, Astro y Supabase, siempre buscando código limpio, mantenible y enfocado en el usuario final.",
+    "cta": { "label": "Conóceme más", "href": "#contacto", "arrow": "↗" }
+  },
+  "stats": [
+    { "icon": "calendar", "value": "5+",   "label": "Años de experiencia" },
+    { "icon": "code",     "value": "50+",  "label": "Proyectos completados" },
+    { "icon": "smile",    "value": "30+",  "label": "Clientes satisfechos" },
+    { "icon": "trophy",   "value": "100%", "label": "Compromiso con la calidad" }
+  ],
+  "skills": {
+    "eyebrow": "MIS HABILIDADES",
+    "heading": "Tecnologías que domino",
+    "items": [
+      { "name": "Laravel",      "level": 95, "accent": "red"    },
+      { "name": "Vue",          "level": 90, "accent": "green"  },
+      { "name": "React",        "level": 88, "accent": "cyan"   },
+      { "name": "Astro",        "level": 85, "accent": "orange" },
+      { "name": "Next.js",      "level": 80, "accent": "white"  },
+      { "name": "Node.js",      "level": 85, "accent": "green"  },
+      { "name": "PostgreSQL",   "level": 88, "accent": "blue"   },
+      { "name": "Supabase",     "level": 80, "accent": "green"  },
+      { "name": "Docker / AWS", "level": 75, "accent": "amber"  }
+    ]
+  },
+  "projects": {
+    "eyebrow": "PROYECTOS DESTACADOS",
+    "heading": "Algunos de mis trabajos recientes",
+    "items": [
+      {
+        "id": "01",
+        "title": "Rally Nacional — Plataforma Web",
+        "description": "Sistema de organización de equipos y participantes para el Rally Nacional 2022.",
+        "tags": ["Web", "Eventos"],
+        "url": "#"
+      },
+      {
+        "id": "02",
+        "title": "Apolo Manager",
+        "description": "Sistema de organización empresarial. Gestiona compras, ventas de productos y ofertas de servicios.",
+        "tags": ["ERP", "Negocios"],
+        "url": "#"
+      },
+      {
+        "id": "03",
+        "title": "Apolo RRHH",
+        "description": "Sistema de gestión de talento humano: desde el proceso de selección hasta la generación de nóminas.",
+        "tags": ["HR", "SaaS"],
+        "url": "#"
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "EXPERIENCIA",
+    "heading": "Mi trayectoria profesional",
+    "items": [
+      { "role": "Líder de Proyecto",        "company": "Software Nicaragua",  "period": "Ago 2025 – Dic 2025",  "summary": "Desarrollo con Next.js e integración de Supabase para datos y autenticación. Lideré la organización y coordinación del equipo de desarrollo." },
+      { "role": "Desarrollador Full-Stack", "company": "NetForemost",          "period": "Jun 2024 – Abr 2025",  "summary": "Webs personalizadas para clientes con Laravel, Vue y Ruby on Rails. Comunicación directa para convertir necesidades en funcionalidades." },
+      { "role": "Líder de Proyecto",        "company": "UNCPGGL",              "period": "Dic 2023 – Presente",  "summary": "Planificación y desarrollo full-stack de sistemas de gestión académica con React en el frontend y Laravel en el backend. Docente de Ingeniería de Software." },
+      { "role": "Desarrollador Web",        "company": "Clink! Web Value",     "period": "Jun 2022 – May 2025",  "summary": "Sitios en WordPress, plugins y themes personalizados, maquetación en PDF. BitBucket, Plesk y Figma en el día a día." },
+      { "role": "Desarrollador de Sistemas","company": "UNAN-León",            "period": "Ene 2021 – Mar 2024",  "summary": "Sistemas de gestión académica con PHP, PostgreSQL, JavaScript, HTML5, CSS3, Bootstrap, jQuery, Doctrine ORM y Apache 2. Figma, Adobe XD y SVN." },
+      { "role": "Desarrollador Full-Stack", "company": "Freelance",            "period": "2020 – Presente",      "summary": "Proyectos para negocios locales con Laravel, Inertia (Vue/React), Express JS y Astro. Buenas prácticas de Git en cada entrega." },
+      { "role": "Soporte Técnico",          "company": "Comptech",             "period": "Ene 2019 – Jun 2019",  "summary": "Mantenimiento de equipos, atención al cliente, ventas y manejo de inventario." }
+    ]
+  },
+  "education": {
+    "eyebrow": "EDUCACIÓN & CERTIFICACIONES",
+    "heading": "Formación continua",
+    "items": [
+      { "title": "Ingeniería en Sistemas de Información", "org": "Universidad Nacional Autónoma de Nicaragua - León", "period": "2018 – 2023" },
+      { "title": "AWS Cloud Practitioner",                "org": "AWS Training",                                        "period": "2022 – 2028" },
+      { "title": "Certificado de Inglés Nivel 3",          "org": "UNAN-León, Centro de Idiomas",                        "period": ""           }
+    ]
+  },
+  "languages": [
+    { "name": "Español",  "level": "Nativo" },
+    { "name": "Inglés",   "level": "Intermedio (B1)" },
+    { "name": "Italiano", "level": "Básico" }
+  ],
+  "contact": {
+    "eyebrow": "TRABAJEMOS JUNTOS",
+    "heading": "¿Tienes un proyecto en mente?",
+    "body": "Estoy abierto a proyectos freelance, colaboraciones y oportunidades remotas. Escríbeme y conversamos.",
+    "cta": { "label": "Escríbeme", "href": "mailto:herdocia20@gmail.com", "arrow": "↗" }
+  }
+}

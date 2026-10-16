@@ -1,0 +1,22 @@
+---
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  class?: string;
+  containerClass?: string;
+}
+const { id, eyebrow, class: className = '', containerClass = '' } = Astro.props;
+---
+<section id={id} class:list={['relative py-20 sm:py-24 lg:py-28', className]}>
+  <Container class={containerClass}>
+    {eyebrow && (
+      <div class="mb-3 flex justify-center">
+        <span class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-300">
+          <span class="size-1.5 rounded-full bg-brand-400"></span>
+          {eyebrow}
+        </span>
+      </div>
+    )}
+    <slot />
+  </Container>
+</section>

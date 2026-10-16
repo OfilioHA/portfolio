@@ -1,0 +1,48 @@
+---
+interface Props {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'outline' | 'ghost';
+  arrow?: string;
+  download?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+const {
+  label,
+  href,
+  variant = 'primary',
+  arrow,
+  download = false,
+  class: className = '',
+  ariaLabel,
+} = Astro.props;
+
+const base =
+  'group relative inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base';
+
+const variants: Record<string, string> = {
+  primary:
+    'bg-brand-500 text-white shadow-[0_8px_24px_-8px_rgba(59,130,246,0.6)] hover:bg-brand-600 hover:shadow-[0_10px_30px_-8px_rgba(59,130,246,0.75)] hover:-translate-y-0.5',
+  outline:
+    'border border-brand-500/40 bg-transparent text-brand-200 hover:bg-brand-500/10 hover:border-brand-400 hover:text-white',
+  ghost:
+    'bg-bg-soft text-text hover:bg-bg-card',
+};
+
+const isExternal = href.startsWith('http') || href.startsWith('mailto:') || download;
+const tag = isExternal ? 'a' : 'a';
+---
+<a
+  href={href}
+  class:list={[base, variants[variant], className]}
+  download={download || undefined}
+  aria-label={ariaLabel}
+>
+  <span>{label}</span>
+  {arrow && (
+    <span class="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+      {arrow}
+    </span>
+  )}
+</a>

@@ -1,0 +1,96 @@
+---
+import site from '../../data/site.json';
+
+const navItems = [
+  { href: '#inicio',      label: 'Inicio'      },
+  { href: '#sobre-mi',    label: 'Sobre mí'    },
+  { href: '#habilidades', label: 'Habilidades' },
+  { href: '#proyectos',   label: 'Proyectos'   },
+  { href: '#experiencia', label: 'Experiencia' },
+  { href: '#contacto',    label: 'Contacto'    },
+];
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-white/5 bg-bg-base/70 backdrop-blur-xl backdrop-saturate-150">
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
+    <a href="#inicio" class="group flex items-center gap-2.5">
+      <span class="grid size-9 place-items-center rounded-lg bg-brand-500/15 text-brand-300 ring-1 ring-brand-500/30 transition group-hover:bg-brand-500/25 group-hover:text-brand-200">
+        <span class="font-mono text-sm font-bold">&lt;/&gt;</span>
+      </span>
+      <span class="text-base font-semibold tracking-tight text-text">
+        {site.brand.wordmark}<span class="text-brand-400">.</span>
+      </span>
+    </a>
+
+    <nav class="hidden md:block" aria-label="Principal">
+      <ul class="flex items-center gap-1">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-nav
+              class="group relative inline-flex items-center px-3 py-2 text-sm font-medium text-text-muted transition hover:text-text"
+            >
+              {item.label}
+              <span class="absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-brand-400 transition-transform duration-200 group-[.is-active]:scale-x-100"></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a
+      href="#contacto"
+      class="group inline-flex items-center gap-1.5 rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_rgba(59,130,246,0.6)] transition hover:bg-brand-600 hover:shadow-[0_10px_30px_-8px_rgba(59,130,246,0.75)]"
+    >
+      Hablemos
+      <span class="inline-block transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+    </a>
+
+    <button
+      type="button"
+      id="nav-toggle"
+      class="grid size-9 place-items-center rounded-lg border border-white/10 bg-bg-elevated text-text-muted transition hover:text-text md:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="nav-toggle-icon">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-white/5 bg-bg-base/95 backdrop-blur-xl md:hidden">
+    <nav class="mx-auto max-w-6xl px-5 py-3" aria-label="Móvil">
+      <ul class="flex flex-col gap-1">
+        {navItems.map((item) => (
+          <li>
+            <a href={item.href} class="block rounded-md px-3 py-2 text-sm font-medium text-text-muted transition hover:bg-bg-elevated hover:text-text">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+  menu?.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  a[data-nav].is-active { color: var(--color-text); }
+</style>

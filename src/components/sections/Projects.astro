@@ -1,0 +1,79 @@
+---
+import profile from '../../data/profile.json';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Icon from '../ui/Icon.astro';
+
+// Color tag for project visual placeholder
+const projectGradients: Record<string, string> = {
+  '01': 'from-brand-700 via-brand-500 to-cyan-400',
+  '02': 'from-indigo-700 via-brand-600 to-brand-400',
+  '03': 'from-slate-700 via-brand-500 to-emerald-400',
+};
+---
+
+<section id="proyectos" class="relative border-t border-white/5 py-20 sm:py-24">
+  <div class="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div class="text-center reveal">
+      <Eyebrow label={profile.projects.eyebrow} />
+      <h2 class="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+        {profile.projects.heading}
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {profile.projects.items.map((project) => (
+        <article
+          class="group reveal flex flex-col overflow-hidden rounded-xl border border-white/5 bg-bg-elevated transition hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-[0_20px_60px_-20px_rgba(59,130,246,0.4)]"
+        >
+          <!-- Project visual (placeholder) -->
+          <div class:list={['relative aspect-[16/10] overflow-hidden bg-gradient-to-br', projectGradients[project.id] || 'from-brand-700 to-brand-400']}>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.18),transparent_55%)]"></div>
+            <!-- Mock UI lines -->
+            <div class="absolute inset-x-6 top-6 space-y-2 opacity-70">
+              <div class="h-2 w-1/3 rounded bg-white/40"></div>
+              <div class="h-2 w-1/2 rounded bg-white/25"></div>
+              <div class="h-2 w-2/5 rounded bg-white/30"></div>
+            </div>
+            <div class="absolute inset-x-6 bottom-6 grid grid-cols-3 gap-2 opacity-70">
+              <div class="h-10 rounded bg-white/30"></div>
+              <div class="h-10 rounded bg-white/20"></div>
+              <div class="h-10 rounded bg-white/25"></div>
+            </div>
+            <!-- Number badge -->
+            <div class="absolute left-4 top-4 inline-flex h-8 items-center rounded-md bg-bg-base/70 px-2.5 font-mono text-xs font-bold text-text backdrop-blur">
+              {project.id}
+            </div>
+            <!-- Subtle hover zoom -->
+            <div class="absolute inset-0 bg-bg-base/0 transition group-hover:bg-bg-base/10"></div>
+          </div>
+
+          <!-- Body -->
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="text-lg font-bold tracking-tight text-text">
+              {project.title}
+            </h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-text-muted">
+              {project.description}
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <ul class="flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <li class="rounded-md border border-white/10 bg-bg-soft px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-text-muted">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={project.url}
+                class="group/link inline-flex items-center gap-1 text-xs font-semibold text-brand-300 transition hover:text-brand-200"
+              >
+                Ver proyecto
+                <span class="inline-block transition-transform group-hover/link:translate-x-0.5">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

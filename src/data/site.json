@@ -1,0 +1,28 @@
+{
+  "site": {
+    "name": "Ofilio Herdocia",
+    "title": "Ofilio Herdocia — Fullstack Developer",
+    "domain": "https://{{DOMAIN}}.com",
+    "locale": "es",
+    "description": "Portfolio de Ofilio Herdocia Arauz, Fullstack Developer con base en Nicaragua y experiencia en Laravel, Vue, React, Astro y más."
+  },
+  "brand": {
+    "wordmark": "OfilioHA",
+    "tagline": "Fullstack Developer"
+  },
+  "contact": {
+    "email": "herdocia20@gmail.com",
+    "phone": "+505 8407-0918",
+    "location": "Nicaragua, León",
+    "availability": "Disponible para proyectos freelance y posiciones remotas"
+  },
+  "social": [
+    { "label": "GitHub",    "handle": "{{HANDLE}}", "url": "https://github.com/{{HANDLE}}",    "icon": "github"    },
+    { "label": "LinkedIn",  "handle": "{{HANDLE}}", "url": "https://linkedin.com/in/{{HANDLE}}", "icon": "linkedin" },
+    { "label": "Twitter",   "handle": "{{HANDLE}}", "url": "https://x.com/{{HANDLE}}",         "icon": "twitter"   },
+    { "label": "Instagram", "handle": "{{HANDLE}}", "url": "https://instagram.com/{{HANDLE}}", "icon": "instagram" }
+  ],
+  "cv": {
+    "file": "/cv-ofilio-herdocia.pdf"
+  }
+}
